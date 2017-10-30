@@ -96,11 +96,33 @@
           "type": "basic",
           "from": {
             "key_code": "non_us_backslash",
-            "modifiers": {
-              "mandatory": [
-                "shift"
-              ]
+            "modifiers": {"mandatory": ["command"]}
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command"]
             }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {"mandatory": ["command", "shift"]}
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde",
+              "modifiers": ["command", "shift"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": {"mandatory": ["shift"]}
           },
           "to": [
             {
