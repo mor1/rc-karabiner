@@ -2,6 +2,27 @@
   "title": "Mort's Keymap",
   "rules": [
     {
+      "description": "mort: don't logout emacs when reflowing paragraph",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^org\\.gnu\\.Emacs$"]
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {"optional": ["any"]}
+          },
+          "to": {
+            "key_code": "q"
+          }
+        }
+      ]
+    },
+    {
       "description": "mort: msft: cmd <-> opt",
       "manipulators": [
         {
@@ -43,7 +64,7 @@
       ]
     },
     {
-      "description": "mort: caps_lock -> ctrl",
+      "description": "mort: CAPS_LOCK -> CTRL, or ESC if alone",
       "manipulators": [
         {
           "type": "basic",
@@ -54,6 +75,11 @@
           "to": [
             {
               "key_code": "left_control"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
             }
           ]
         }
