@@ -75,7 +75,7 @@
                         ]
                     },
                     {
-                        "description": "mort: caps_lock -> ctrl",
+                        "description": "mort: caps_lock -> ctrl or esc if alone",
                         "manipulators": [
                             {
                                 "from": {
@@ -89,6 +89,11 @@
                                 "to": [
                                     {
                                         "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
                                     }
                                 ],
                                 "type": "basic"
@@ -467,71 +472,28 @@
                         ]
                     },
                     {
-                        "description": "mort: fine volume controls",
+                        "description": "mort: don't logout emacs when reflowing paragraph",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "f11"
-                                },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "volume_decrement",
-                                        "modifiers": [
-                                            "left_shift",
-                                            "left_option"
-                                        ]
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
                                 "from": {
-                                    "key_code": "f12"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "volume_increment",
-                                        "modifiers": [
-                                            "left_shift",
-                                            "left_option"
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
                                         ]
                                     }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "mort: fine brightness controls",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f1"
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "display_brightness_decrement",
-                                        "modifiers": [
-                                            "left_shift",
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "f2"
+                                "to": {
+                                    "key_code": "q"
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "display_brightness_increment",
-                                        "modifiers": [
-                                            "left_shift",
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
                                 "type": "basic"
                             }
                         ]
@@ -626,7 +588,7 @@
                         "key_code": "f4"
                     },
                     "to": {
-                        "key_code": "launchpad"
+                        "key_code": "delete_forward"
                     }
                 },
                 {
